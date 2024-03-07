@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Tutor : Answer</title>
+    <title>Tutor : Add Course</title>
 
     <!-- Font -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -73,46 +73,22 @@
     </div>
     <!-- Sidebar End -->
 
-    <!-- Section Answer Start -->
-    <section class="questions">
-      <h1 class="heading">Q&A : Answer</h1>
+    <!-- Section Add Course Start -->
+    <section class="form-container">
+      <form action="" method="post" enctype="multipart/form-data">
+        <h3>Add Course</h3>
+        <p>Choose cover picture</p>
+        <input type="file" accept="image/*" class="box" />
 
-      <div class="box-container">
-        <div class="box">
-          <div class="user">
-            <img src="images/user.png" alt="" />
-            <div>
-              <h3>Student1 Name</h3>
-              <span>DD-MM-YYYY</span>
-            </div>
-          </div>
-          <div class="question-box">eieieieieieieiei helloooo</div>
-
-          <div class="answer">
-            <form action="" class="add-answer">
-              <h3>Add answer</h3>
-              <textarea
-                name="answer_box"
-                placeholder="enter your answer"
-                required
-                maxlength="1000"
-                cols="30"
-                rows="10"
-              ></textarea>
-              <a href="t_question.html" class="inline-btn">Back</a>
-              <input
-                href=""
-                type="submit"
-                value="Answer"
-                class="ans-btn"
-                name="add_answer"
-              />
-            </form>
-          </div>
-        </div>
-      </div>
+        <p>Course name</p>
+        <input type="text" name="Cname" placeholder="" class="box" />
+        <p>Description</p>
+        <textarea name="" class="box" cols="5" rows="5"></textarea>
+        <a href="t_courses.html" class="inline-btn">Back</a>
+        <input type="submit" value="Add course" name="submit" class="ans-btn" />
+      </form>
     </section>
-    <!-- Section Answer End -->
+    <!-- Section Add Course End -->
 
     <!-- custom js file link  -->
     <script src="js/scripts.js"></script>
