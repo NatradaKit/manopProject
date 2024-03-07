@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Tutor : Edit Course</title>
+    <title>Tutor : Edit Chapter</title>
 
     <!-- Font -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -73,23 +73,26 @@
     </div>
     <!-- Sidebar End -->
 
-    <!-- Section Edit Course Start -->
+    <!-- Section Edit Chapter Start -->
     <section class="form-container">
       <form action="" method="post" enctype="multipart/form-data">
-        <h3>Edit Course</h3>
-        <p>Cover picture</p>
-        <input type="file" accept="image/*" class="box" />
-
-        <p>Course name</p>
+        <h3>Edit Chapter</h3>
+        <p>Chapter name</p>
         <input
           type="text"
-          name="Cname"
-          placeholder="old course name"
-          maxlength="50"
+          name="Chapname"
+          placeholder="old chapter name"
           class="box"
         />
-        <p>Description</p>
 
+        <p>Link Video</p>
+        <input
+          type="text"
+          name="LinkVideo"
+          placeholder="old Link Video"
+          class="box"
+        />
+        <p>Chapter description</p>
         <textarea
           name=""
           class="box"
@@ -97,16 +100,19 @@
           cols="5"
           rows="5"
         ></textarea>
+
+        <p>File</p>
+        <input type="file" accept="image/*" class="box" />
         <a href="t_courses.html" class="inline-btn">Back</a>
         <input
           type="submit"
-          value="update course"
+          value="Edit chapter"
           name="submit"
           class="ans-btn"
         />
       </form>
     </section>
-    <!-- Section Edit Course End -->
+    <!-- Section Edit Chapter End -->
 
     <!-- custom js file link  -->
     <script src="js/scripts.js"></script>
