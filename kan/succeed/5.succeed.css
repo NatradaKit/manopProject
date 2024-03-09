@@ -1,0 +1,32 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #6f75a8;
+    margin: 0;
+    padding: 20px;
+}
+
+.container {
+    max-width: 600px;
+    margin: 0 auto;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.payment-success h1 {
+    color: #28a745;
+    font-size: 36px;
+    margin-bottom: 10px;
+}
+
+.payment-success p {
+    color: #333;
+    font-size: 18px;
+    margin-bottom: 20px;
+}
+
+.payment-success p:last-child {
+    margin-bottom: 0;
+}
