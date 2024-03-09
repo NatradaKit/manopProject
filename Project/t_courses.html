@@ -78,7 +78,8 @@
       <div class="btnbox">
         <h1 class="heading">My courses</h1>
         <a href="t_EditCourses.html" class="inline-btn">Edit Course</a>
-        <a href="t_AddCourses.html" class="inline-btn">Add Course</a>
+        <!-- <a href="t_AddCourses.html" class="inline-btn">Add Course</a> -->
+        <a href="#popup1" class="inline-btn">Add Course</a>
       </div>
       <br />
       <br />
@@ -159,6 +160,33 @@
             </div>
           </div>
           <a href=""><h3 class="title">Course name</h3></a>
+        </div>
+      </div>
+
+      <div id="popup1" class="overlay">
+        <div class="popup">
+          <h3>Add Course</h3>
+          <a class="close" href="">&times;</a>
+          <div class="content">
+            <div class="form-container">
+              <form action="" method="post" enctype="multipart/form-data">
+                <p>Choose cover picture</p>
+                <input type="file" accept="image/*" class="box" />
+
+                <p>Course name</p>
+                <input type="text" name="Cname" placeholder="" class="box" />
+                <p>Description</p>
+                <textarea name="" class="box" cols="5" rows="5"></textarea>
+                <!-- <a href="t_courses.html" class="inline-btn">Back</a> -->
+                <input
+                  type="submit"
+                  value="Add course"
+                  name="submit"
+                  class="ans-btn"
+                />
+              </form>
+            </div>
+          </div>
         </div>
       </div>
     </section>
