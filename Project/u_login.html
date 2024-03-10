@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+
+<head>
     <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <!-- <link rel="stylesheet" href="1.detail.css"> -->
-    <title>User : Log in</title>
+    <title>เข้าสู่ระบบ | EdVenture</title>
+
     <!-- Font -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -19,90 +19,148 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css"
     />
-    <!-- <link
-       href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined"
-       rel="stylesheet"
-     /> -->
+    <!-- Custom CSS -->
+    <!-- <link rel="stylesheet" href="styles.css" /> -->
+    <style>
+    /* ---------- HEADER ---------- */
+    * {
+  font-family: "Mitr", sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  outline: none;
+  border: none;
+  text-decoration: none;
+}
 
-    <!-- custom css file link  -->
-    <link rel="stylesheet" href="css/styles.css" />
-  </head>
-  <body>
-    <!-- Header Start -->
-    <header class="header">
-      <section class="flex">
-        <a href="" class="logo"
-          ><i class="fa-solid fa-book-open"></i> EdVenture</a
-        >
+.header-login-u {
+    grid-area: header;
+    height: 70px;
+    background-color: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 30px 0 30px;
+    box-shadow: 0 6px 7px -4px rgba(0, 0, 0, 0.2);
+}
 
-        <div class="icons">
-          <div id="menu-btn" class="fas fa-bars" onclick="MenuClick()"></div>
-          <div id="user-btn" class="fas fa-user" onclick="ProfileClick()"></div>
-        </div>
+.header-login-u .flex {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+  padding: 1.5rem 2rem;
+}
 
-        <div class="profile">
-          <h3 class="name">Tutor name</h3>
-          <p class="role">Tutor</p>
-          <div class="flex-btn">
-            <a href="login" class="option-btn">login</a>
-            <a href="register" class="option-btn">register</a>
-          </div>
-        </div>
-      </section>
-    </header>
-    <!-- Header End -->
+.header-login-u .flex .logo {
+  font-size: 1.5rem;
+  color: var(--black);
+}
 
-    <!-- Sidebar Start -->
-    <div class="side-bar">
-      <div class="profile">
-        <img src="images/user.png" class="image" alt="" />
-        <a href="profile.html"><h3 class="name">Tutor name</h3></a>
-        <p class="role">Tutor</p>
-      </div>
+/* .menu-icon {
+    display: none;
+} */
 
-      <nav class="navbar">
-        <a href=""><i class="fas fa-home"></i><span>Home</span></a>
-        <a href="t_courses.html"
-          ><i class="fas fa-graduation-cap"></i><span>Courses</span></a
-        >
-        <a href=""><i class="fa-solid fa-film"></i><span>Video</span></a>
-        <a href="t_question.html"
-          ><i class="fa-solid fa-question"></i><span>Q&A</span></a
-        >
-      </nav>
+#head {
+    font-size: 20px;
+    font-weight: 700;
+}
+
+    .box {
+      position: absolute;
+      height: 100%;
+      width: 100%;
+      font-family: Helvetica;
+      color: #fff;
+      background: rgba(0, 0, 0, 0.13);
+      padding: 30px 0px;
+  }
+  
+  .box h1 {
+      text-align: center;
+      margin: 30px 0;
+      font-size: 30px;
+  }
+  
+  .box input {
+      display: block;
+      width: 300px;
+      margin: 20px auto;
+      padding: 15px;
+      background: rgba(0, 0, 0, 0.2);
+      color: #fff;
+      border: 0;
+  }
+  
+  .box input:focus,
+  .box input:active,
+  .box button:focus,
+  .box button:active {
+      outline: none;
+  }
+  
+  .box button {
+      background: #141c45;
+      border: 0;
+      color: #fff;
+      padding: 10px;
+      font-size: 16px;
+      width: 330px;
+      margin: 20px auto;
+      display: block;
+      cursor: pointer;
+  }
+  
+  .box button:active {
+      background: #27ae60;
+  }
+
+  button:hover {
+  background-color: #333b5f;
+  color: var(--white);
+  border-radius: 20px;
+}
+  
+  .box p {
+      font-size: 14px;
+      text-align: center;
+  }
+  
+  .box p span {
+      cursor: pointer;
+      color: #666;
+  }</style>
+</head>
+
+<body>
+    <!-- <div class="grid-container"> -->
+    <div class="top">
+        <!-- Header -->
+        <header class="header-login-u">
+          <section class="flex">  
+              <a href="" class="logo"
+              ><i class="fa-solid fa-book-open"></i> EdVenture</a
+            >
+            </div>
+          </section>
+        </header>
+        <!-- Header End -->
+
+        <section class="login">
+                    <div class="box">
+                        <h1 style="color: #141c45; font-weight: 500;">เข้าสู่ระบบ</h1>
+                        <input style="border-radius: 10px;" type="text" placeholder="Username" />
+                        <input style="border-radius: 10px;" type="password" placeholder="Password" />
+                        <button style="border-radius: 20px; width: 130px;" class="inline-btn">ลงชื่อเข้าใช้</button>
+                        <p style="color: black;">ไม่มีบัญชีใช่ไหม?    <a href="u_apply.html">   สร้างบัญชี</a></p>
+                    </div>
+                </div>
+            <!-- </div> -->
+        </section>
+        <!-- Sidebar End -->
     </div>
-    <!-- Sidebar End -->
-
-    <!-- Section Course Start -->
-
-    <!-- Section Course End -->
-
-    <section class="form-container">
-      <form action="" method="post" enctype="multipart/form-data">
-        <h3>Login</h3>
-        <p>Username:</p>
-        <input
-          type="text"
-          name="username"
-          placeholder="Enter your username"
-          class="box"
-        />
-
-        <p>Password:</p>
-        <input
-          type="text"
-          name="Password"
-          placeholder="Enter your Password"
-          class="box"
-        />
-
-        <div class="buttom">
-          <button>Login</button>
-        <p>Not a member? <span>Sign Up</span></p>
-      </div>
-        
-      </form>
-    </section>
+    <!-- Custom JS -->
     <script src="js/scripts.js"></script>
-  </body>
+</body>
+
 </html>
