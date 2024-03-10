@@ -28,50 +28,49 @@
     <link rel="stylesheet" href="css/styles.css" />
   </head>
   <body>
-        <!-- Header Start -->
-        <header class="header">
-          <section class="flex">
-            <a href="" class="logo"
-              ><i class="fa-solid fa-book-open"></i> EdVenture</a
-            >
-    
-            <div class="icons">
-              <div id="menu-btn" class="fas fa-bars" onclick="MenuClick()"></div>
-              <div id="user-btn" class="fas fa-user" onclick="ProfileClick()"></div>
-            </div>
-    
-            <div class="profile">
-              <h3 class="name">Tutor name</h3>
-              <p class="role">Tutor</p>
-              <div class="flex-btn">
-                <a href="login" class="option-btn">login</a>
-                <a href="register" class="option-btn">register</a>
-              </div>
-            </div>
-          </section>
-        </header>
-        <!-- Header End -->
-    
-        <!-- Sidebar Start -->
-        <div class="side-bar">
-          <div class="profile">
-            <img src="images/user.png" class="image" alt="" />
-            <a href="profile.html"><h3 class="name">Tutor name</h3></a>
-            <p class="role">Tutor</p>
-          </div>
-    
-          <nav class="navbar">
-            <a href=""><i class="fas fa-home"></i><span>Home</span></a>
-            <a href="t_courses.html"
-              ><i class="fas fa-graduation-cap"></i><span>Courses</span></a
-            >
-            <a href="t_video.html"><i class="fa-solid fa-film"></i><span>Video</span></a>
-            <a href="t_question.html"
-              ><i class="fa-solid fa-question"></i><span>Q&A</span></a
-            >
-          </nav>
+            <!-- Header Start -->
+    <header class="header">
+      <section class="flex">
+        <a href="" class="logo"
+          ><i class="fa-solid fa-book-open"></i> EdVenture</a
+        >
+
+        <div class="icons">
+          <div id="menu-btn" class="fas fa-bars" onclick="MenuClick()"></div>
+          <div id="user-btn" class="fas fa-user" onclick="ProfileClick()"></div>
         </div>
-        <!-- Sidebar End -->
+
+        <div class="profile">
+          <h3 class="name">ชื่อผู้สอน</h3>
+          <p class="role">ผู้สอน</p>
+          <div class="flex-btn">
+            <a href="logout" class="option-btn">ออกจากระบบ</a>
+          </div>
+        </div>
+      </section>
+    </header>
+    <!-- Header End -->
+
+    <!-- Sidebar Start -->
+    <div class="side-bar">
+      <div class="profile">
+        <img src="images/user.png" class="image" alt="" />
+        <a href="profile.html"><h3 class="name">ชื่อผู้สอน</h3></a>
+        <p class="role">ผู้สอน</p>
+      </div>
+
+      <nav class="navbar">
+        <a href="t_profile.html"><i class="fas fa-home"></i><span>หน้าหลัก</span></a>
+        <a href="t_courses.html"
+          ><i class="fas fa-graduation-cap"></i><span>คอร์สเรียน</span></a
+        >
+        <!-- <a href="t_video.html"><i class="fa-solid fa-film"></i><span>Video</span></a> -->
+        <a href="t_question.html"
+          ><i class="fa-solid fa-question"></i><span>Q&A</span></a
+        >
+      </nav>
+    </div>
+    <!-- Sidebar End -->
 
     <!-- Section Answer Start -->
     <section class="questions">
