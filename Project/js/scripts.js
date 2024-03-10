@@ -26,29 +26,29 @@ window.onscroll = () => {
   }
 };
 
-var clickStar = document.getElementsByClassName("star");
-console.log(clickStar);
+// var clickStar = document.getElementsByClassName("star");
+// console.log(clickStar);
 
-for (let i = 0; i < clickStar.length; i++) {
-   clickStar[i].addEventListener("click", function (e) {
-      //alert("hello");
-      if (e.target.closest("span")) {
-         console.log(e);
-         let span_el = e.target.closest("span");
-         if (span_el.classList.contains("star")) {
+// for (let i = 0; i < clickStar.length; i++) {
+//    clickStar[i].addEventListener("click", function (e) {
+//       //alert("hello");
+//       if (e.target.closest("span")) {
+//          console.log(e);
+//          let span_el = e.target.closest("span");
+//          if (span_el.classList.contains("star")) {
 
-            let current_star = parseInt(span_el.getAttribute("data-star"));
-            let star_span = span_el.closest("div.star_block").querySelectorAll("span.star");
-            //console.log(star_span);
-            star_span.forEach(function (star_item, i) {
+//             let current_star = parseInt(span_el.getAttribute("data-star"));
+//             let star_span = span_el.closest("div.star_block").querySelectorAll("span.star");
+//             //console.log(star_span);
+//             star_span.forEach(function (star_item, i) {
 
-               if (parseInt(star_item.getAttribute("data-star")) <= current_star) {
-                  star_span[i].classList.add("-on");
-               } else {
-                  star_span[i].classList.remove("-on");
-               }
-            });
-         }
-      }
-   })
-}
+//                if (parseInt(star_item.getAttribute("data-star")) <= current_star) {
+//                   star_span[i].classList.add("-on");
+//                } else {
+//                   star_span[i].classList.remove("-on");
+//                }
+//             });
+//          }
+//       }
+//    })
+// }
