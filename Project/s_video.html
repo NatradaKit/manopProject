@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Student : Video</title>
+
+    <!-- Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Mitr:wght@200;300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- font awesome cdn link  -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css"
+    />
+    <!-- <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined"
+      rel="stylesheet"
+    /> -->
+
+    <!-- custom css file link  -->
+    <link rel="stylesheet" href="css/styles.css" />
+  </head>
+  <body>
+    <!-- Header Start -->
+    <header class="header">
+      <section class="flex">
+        <a href="" class="logo"
+          ><i class="fa-solid fa-book-open"></i> EdVenture</a
+        >
+
+        <div class="icons">
+          <div id="menu-btn" class="fas fa-bars" onclick="MenuClick()"></div>
+          <div id="user-btn" class="fas fa-user" onclick="ProfileClick()"></div>
+        </div>
+
+        <div class="profile">
+          <h3 class="name">Student name</h3>
+          <p class="role">Student</p>
+          <div class="flex-btn">
+            <a href="login" class="option-btn">login</a>
+            <a href="register" class="option-btn">register</a>
+          </div>
+        </div>
+      </section>
+    </header>
+    <!-- Header End -->
+
+    <!-- Sidebar Start -->
+    <div class="side-bar">
+      <div class="profile">
+        <img src="images/user.png" class="image" alt="" />
+        <a href="profile.html"><h3 class="name">Student name</h3></a>
+        <p class="role">Student</p>
+      </div>
+
+      <nav class="navbar">
+        <a href="s_home.html"><i class="fas fa-home"></i><span>Home</span></a>
+        <a href="s_courses.html"
+          ><i class="fas fa-graduation-cap"></i><span>Courses</span></a
+        >
+        <a href="s_video.html"
+          ><i class="fa-solid fa-film"></i><span>Video</span></a
+        >
+        <a href="s_review.html"
+          ><i class="fa-solid fa-film"></i><span>Review</span></a
+        >
+      </nav>
+    </div>
+    <!-- Sidebar End -->
+
+    <!-- Section Course Start -->
+    <section class="watch-video">
+        <h3 style="font-size: 3rem;
+        font-weight: 600;
+        text-transform: capitalize;
+        color: var(--black);
+        text-align: center;">Video</h3><br>
+        <div class="video-container">
+            <div class="video">
+               <video src="images/vid-1.mp4" controls poster="images/post-1-1.png" id="video"></video>
+            </div>
+            <h3 class="title" style="font-size: 25px;">Course Name (part 01)</h3>
+            <div class="info">
+               <p class="date"><i class="fas fa-calendar"></i><span>22-10-2022</span></p>
+            </div>
+            <div class="tutor">
+               <img src="images/user.png" alt="">
+               <div>
+                  <h3 style="font-weight: 500;">Tutor Name</h3>
+               </div>
+            </div>
+         </div>
+    </section>
+
+    <section class="comments">
+
+        <h1 class="heading">2 ความคิดเห็น</h1>
+     
+        <form action="" class="add-comment">
+           <h3>ถามคำถาม</h3>
+           <textarea name="comment_box" placeholder="พิมพ์คำถามที่สงสัยได้เลย!" required maxlength="1000" cols="30" rows="10"></textarea>
+           <input type="submit" value="ถามคำถาม" class="inline-btn" name="add_comment">
+        </form>
+
+     
+     </section>
+    <!-- Section Course End -->
+
+    <!-- custom js file link  -->
+    <script src="js/scripts.js"></script>
+  </body>
+</html>
