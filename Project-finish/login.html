@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>เข้าสู่ระบบ | EdVenture</title>
+
+    <!-- Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Mitr:wght@200;300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- font awesome cdn link  -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css"
+    />
+    <!-- Custom CSS -->
+    <!-- <link rel="stylesheet" href="styles.css" /> -->
+    <style>
+    /* ---------- HEADER ---------- */
+    * {
+  font-family: "Mitr", sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  outline: none;
+  border: none;
+  text-decoration: none;
+}
+
+.header-login-u {
+    grid-area: header;
+    height: 70px;
+    background-color: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 30px 0 30px;
+    box-shadow: 0 6px 7px -4px rgba(0, 0, 0, 0.2);
+}
+
+.header-login-u .flex {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+  padding: 1.5rem 2rem;
+}
+
+.header-login-u .flex .logo {
+  font-size: 1.5rem;
+  color: var(--black);
+}
+
+/* .menu-icon {
+    display: none;
+} */
+
+#head {
+    font-size: 20px;
+    font-weight: 700;
+}
+
+    .box {
+      position: absolute;
+      height: 100%;
+      width: 100%;
+      font-family: Helvetica;
+      color: #fff;
+      background: rgba(0, 0, 0, 0.13);
+      padding: 30px 0px;
+  }
+  
+  .box h1 {
+      text-align: center;
+      margin: 30px 0;
+      font-size: 30px;
+  }
+  
+  .box input {
+      display: block;
+      width: 300px;
+      margin: 20px auto;
+      padding: 15px;
+      background: rgba(0, 0, 0, 0.2);
+      color: #fff;
+      border: 0;
+  }
+  
+  .box input:focus,
+  .box input:active,
+  .box button:focus,
+  .box button:active {
+      outline: none;
+  }
+  
+  .box button {
+      background: #141c45;
+      border: 0;
+      color: #fff;
+      padding: 10px;
+      font-size: 16px;
+      width: 330px;
+      margin: 20px auto;
+      display: block;
+      cursor: pointer;
+  }
+  
+  .box button:active {
+      background: #27ae60;
+  }
+
+  button:hover {
+  background-color: #333b5f;
+  color: var(--white);
+  border-radius: 20px;
+}
+  
+  .box p {
+      font-size: 14px;
+      text-align: center;
+  }
+  
+  .box p span {
+      cursor: pointer;
+      color: #666;
+  }</style>
+</head>
+
+<body>
+    <!-- <div class="grid-container"> -->
+    <div class="top">
+        <!-- Header -->
+        <header class="header-login-u">
+          <section class="flex">  
+              <a href="" class="logo"
+              ><i class="fa-solid fa-book-open"></i> EdVenture</a
+            >
+            </div>
+          </section>
+        </header>
+        <!-- Header End -->
+
+        <section class="login">
+                    <div class="box">
+                        <h1 style="color: #141c45; font-weight: 500;">เข้าสู่ระบบ</h1>
+                        <input style="border-radius: 10px;" type="text" placeholder="Username" />
+                        <input style="border-radius: 10px;" type="password" placeholder="Password" />
+                        <button style="border-radius: 20px; width: 130px;" class="inline-btn">ลงชื่อเข้าใช้</button>
+                        <p style="color: black;">ไม่มีบัญชีใช่ไหม?    <a href="u_apply.html">   สร้างบัญชี</a></p>
+                    </div>
+                </div>
+            <!-- </div> -->
+        </section>
+        <!-- Sidebar End -->
+    </div>
+    <!-- Custom JS -->
+    <script src="js/scripts.js"></script>
+</body>
+
+</html>
