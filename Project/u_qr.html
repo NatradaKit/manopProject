@@ -28,52 +28,52 @@
      <link rel="stylesheet" href="css/styles.css" />
 </head>
 <body>
-       
-    
-        <!-- Header Start -->
-        <header class="header">
-          <section class="flex">
-            <a href="" class="logo"
-              ><i class="fa-solid fa-book-open"></i> EdVenture</a
-            >
-    
-            <div class="icons">
-              <div id="menu-btn" class="fas fa-bars" onclick="MenuClick()"></div>
-              <div id="user-btn" class="fas fa-user" onclick="ProfileClick()"></div>
-            </div>
-    
-            <div class="profile">
-              <h3 class="name">Tutor name</h3>
-              <p class="role">Tutor</p>
-              <div class="flex-btn">
-                <a href="login" class="option-btn">login</a>
-                <a href="register" class="option-btn">register</a>
-              </div>
-            </div>
-          </section>
-        </header>
-        <!-- Header End -->
-    
-        <!-- Sidebar Start -->
-        <div class="side-bar">
-          <div class="profile">
-            <img src="images/user.png" class="image" alt="" />
-            <a href="profile.html"><h3 class="name">Tutor name</h3></a>
-            <p class="role">Tutor</p>
-          </div>
-    
-          <nav class="navbar">
-            <a href=""><i class="fas fa-home"></i><span>Home</span></a>
-            <a href="t_courses.html"
-              ><i class="fas fa-graduation-cap"></i><span>Courses</span></a
-            >
-            <a href=""><i class="fa-solid fa-film"></i><span>Video</span></a>
-            <a href="t_question.html"
-              ><i class="fa-solid fa-question"></i><span>Q&A</span></a
-            >
-          </nav>
+    <!-- Header Start -->
+    <header class="header">
+      <section class="flex">
+        <a href="" class="logo"
+          ><i class="fa-solid fa-book-open"></i> EdVenture</a
+        >
+
+        <div class="icons">
+          <div id="menu-btn" class="fas fa-bars" onclick="MenuClick()"></div>
+          <div id="user-btn" class="fas fa-user" onclick="ProfileClick()"></div>
         </div>
-        <!-- Sidebar End -->
+
+        <div class="profile">
+          <h3 class="name">ชื่อผู้ใช้</h3>
+          <p class="role">ผู้ใช้</p>
+          <div class="flex-btn">
+            <a href="login" class="option-btn">เข้าสู่ระบบ</a>
+            <a href="register" class="option-btn">ลงทะเบียน</a>
+          </div>
+        </div>
+      </section>
+    </header>
+    <!-- Header End -->
+
+    <!-- Sidebar Start -->
+    <div class="side-bar">
+      <div class="profile">
+        <img src="images/user.png" class="image" alt="" />
+        <a href="profile.html"><h3 class="name">ชื่อผู้ใช้</h3></a>
+        <p class="role">ผู้ใช้</p>
+      </div>
+
+      <nav class="navbar">
+        <a href=""><i class="fas fa-home"></i><span>หน้าหลัก</span></a>
+        <a href="t_courses.html"
+          ><i class="fas fa-graduation-cap"></i><span>คอร์สเรียน</span></a
+        >
+        <a href=""
+          ><i class="fa-solid fa-cart-shopping"></i><span>สรุปรายการ</span></a
+        >
+        <a href="t_question.html"
+          ><i class="fa-solid fa-question"></i><span>Q&A</span></a
+        >
+      </nav>
+    </div>
+    <!-- Sidebar End -->
     
         <!-- Section Course Start -->
         <section class="courses">
@@ -82,14 +82,18 @@
        
     <div class="container-qr">
         <h1>กรุณาชำระเงินผ่าน QR Code</h1>
+        <br>
         <div class="qr-code">
             <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=YOUR_PAYMENT_DATA_HERE" alt="QR Code">
         </div>
-        <p>บันทึก QR นี้และนำไปสแกนผ่านแอปะนาคาร</p>
+        <p style="font-size: 16px;">บันทึก QR นี้ และนำไปสแกนผ่านแอปธนาคาร</p>
+        <br>
+        <br>
         <div class="payment-details">
-            <h2>รายละเอียดการชำระเงิน</h2>
-            <ul>
-                <li>ชื่อบันชี: <strong>Edventure</strong></li>
+            <h2 style="font-weight: 500;">รายละเอียดการชำระเงิน</h2>
+            <br>
+            <ul style="font-size: 15px; font-weight: 400;">
+                <li>ชื่อบัญชี: <strong>Edventure</strong></li>
                 <li>ยอดชำระ: <strong>100 บาท</strong></li>
                 <li>รหัสคำสั่งซื้อ: <strong>1234567890</strong></li>
             </ul>

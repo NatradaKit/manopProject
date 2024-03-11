@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>check</title>
+    <title>สรุปรายการ</title>
 
     <!-- Font -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -27,88 +27,93 @@
 </head>
 
 <body>
-<!-- Header Start -->
-<header class="header">
-   <section class="flex">
-     <a href="" class="logo"
-       ><i class="fa-solid fa-book-open"></i> EdVenture</a
-     >
+ <!-- Header Start -->
+ <header class="header">
+  <section class="flex">
+    <a href="" class="logo"
+      ><i class="fa-solid fa-book-open"></i> EdVenture</a
+    >
 
-     <div class="icons">
-       <div id="menu-btn" class="fas fa-bars" onclick="MenuClick()"></div>
-       <div id="user-btn" class="fas fa-user" onclick="ProfileClick()"></div>
-     </div>
+    <div class="icons">
+      <div id="menu-btn" class="fas fa-bars" onclick="MenuClick()"></div>
+      <div id="user-btn" class="fas fa-user" onclick="ProfileClick()"></div>
+    </div>
 
-     <div class="profile">
-       <h3 class="name">Tutor name</h3>
-       <p class="role">Tutor</p>
-       <div class="flex-btn">
-         <a href="login" class="option-btn">login</a>
-         <a href="register" class="option-btn">register</a>
-       </div>
-     </div>
-   </section>
- </header>
- <!-- Header End -->
+    <div class="profile">
+      <h3 class="name">ชื่อผู้ใช้</h3>
+      <p class="role">ผู้ใช้</p>
+      <div class="flex-btn">
+        <a href="login" class="option-btn">เข้าสู่ระบบ</a>
+        <a href="register" class="option-btn">ลงทะเบียน</a>
+      </div>
+    </div>
+  </section>
+</header>
+<!-- Header End -->
 
- <!-- Sidebar Start -->
- <div class="side-bar">
-   <div class="profile">
-     <img src="images/user.png" class="image" alt="" />
-     <a href="profile.html"><h3 class="name">Tutor name</h3></a>
-     <p class="role">Tutor</p>
-   </div>
+<!-- Sidebar Start -->
+<div class="side-bar">
+  <div class="profile">
+    <img src="images/user.png" class="image" alt="" />
+    <a href="profile.html"><h3 class="name">ชื่อผู้ใช้</h3></a>
+    <p class="role">ผู้ใช้</p>
+  </div>
 
-   <nav class="navbar">
-     <a href=""><i class="fas fa-home"></i><span>Home</span></a>
-     <a href="t_courses.html"
-       ><i class="fas fa-graduation-cap"></i><span>Courses</span></a
-     >
-     <a href=""><i class="fa-solid fa-film"></i><span>Video</span></a>
-     <a href="t_question.html"
-       ><i class="fa-solid fa-question"></i><span>Q&A</span></a
-     >
-   </nav>
- </div>
- <!-- Sidebar End -->
+  <nav class="navbar">
+    <a href=""><i class="fas fa-home"></i><span>หน้าหลัก</span></a>
+    <a href="t_courses.html"
+      ><i class="fas fa-graduation-cap"></i><span>คอร์สเรียน</span></a
+    >
+    <a href=""
+      ><i class="fa-solid fa-cart-shopping"></i><span>สรุปรายการ</span></a
+    >
+    <a href="t_question.html"
+      ><i class="fa-solid fa-question"></i><span>Q&A</span></a
+    >
+  </nav>
+</div>
+<!-- Sidebar End -->
 
-    <section class="total">
-      <div class="box-container">
+
+    <section class="form">
+      <div class="box-container" style="margin: auto; background-color: var(--white);
+      border-radius: 0.5rem;
+      padding: 2rem;
+      width: 50rem;">
          <h3 style="text-align: center;" class="heading">สรุปรายการ</h1>
-        <!-- <div class="grid-con">
-        <p style="text-align: left; font-size:x-large;">รายการ</p>
-        <p style="text-align: right; font-size:x-large;">รายการ</p>
-    </div> -->
-        <div class="row">
-            <div class="columnleft">
-                <p style="text-align: left; font-size:x-large;">รายการ</p><br>
-                <p style="text-align: left; font-size:large;">Some text..</p>
+          <div class="row">
+            <div class="column" style="float: left;
+            width: 50%;
+            padding: 10px;">
+              <h2 style="font-size: 20px;">รายการ</h2>
+              <p style="font-size: 15px;">Some text..</p>
             </div>
-            <div class="columnright">
-                <p style="text-align: right; font-size:x-large;">ราคา</p><br>
-                <p style="text-align: right; font-size:large;">Some text..</p>
+            <div class="column" style="text-align: right">
+              <h2 style="font-size: 20px;">ราคา</h2>
+              <p style="font-size: 15px;">Some text..</p>
             </div>
-        </div>
+          </div>
 
         <div class="box1">
-            <p>รายละเอียดผู้จองคอร์ส</p>
-        </div><br>
-        <!-- <div class="columnleft"> -->
-            <div class="money">
-                <p>ยอดรวม</p>
+            <p style="font-size: 16px; font-weight: 300;">รายละเอียดผู้จองคอร์ส</p>
+        </div>
+        <br>
+            <div class="money" style="float: right; font-size: 18px;">
+                <p>ยอดรวม: 0000 บาท</p>
             </div>
-        <!-- </div> -->
+<br><br>
 
         <div class="more-btn">
             <a href="bill.html" class="inline-option-btn">ยืนยัน</a>
-        </div></div>
+        </div>
+      </div>
         
 
     </section>
 
 
     <!-- custom js file link  -->
-    <script src="script.js"></script>
+    <script src="js/scripts.js"></script>
 
 </body>
 
