@@ -79,9 +79,10 @@ section {
 
 .inline-btn,
 .ans-btn,
+.ans-btn-two,
 .inline-option-btn,
-.edit-btn,
 .inline-delete-btn,
+.edit-btn,
 .btn,
 .delete-btn,
 .option-btn {
@@ -414,6 +415,57 @@ section {
   }
 }
 
+.courses .box-container .box .tutor {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  margin-bottom: 2.5rem;
+}
+
+.courses .box-container .box .tutor img {
+  height: 5rem;
+  width: 5rem;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.courses .box-container .box .tutor h3 {
+  font-weight: 400;
+  font-size: 1.8rem;
+  color: var(--black);
+  margin-bottom: 0.2rem;
+}
+
+.courses .box-container .box .tutor span {
+  font-size: 1.3rem;
+  color: var(--light-color);
+}
+
+.courses .box-container .box .info span {
+  font-size: 1.3rem;
+  color: var(--black);
+}
+
+.courses .box-container .box .info .price {
+  font-size: 1.7rem;
+  color: var(--red);
+  font-weight: 500;
+}
+
+.courses .box-container .box p {
+  font-size: 1.3rem;
+  color: var(--light-color);
+  margin-left: 1rem;
+  margin-bottom: 1rem;
+}
+
+.courses .box-container .box .title {
+  font-weight: 500;
+  font-size: 2rem;
+  color: var(--black);
+  padding-bottom: 0.5rem;
+  padding-top: 1rem;
+}
 .box .close {
   position: absolute;
   top: 5px;
@@ -654,6 +706,43 @@ section {
   width: 100%;
   margin: 1rem 0;
 }
+
+.container .top-detail h2 {
+  font-size: 2.75rem;
+  color: var(--black);
+  padding-top: 1rem;
+}
+
+.container .top-detail h3 {
+  font-size: 2rem;
+  color: var(--black);
+  padding-top: 1rem;
+}
+
+.container .detail p {
+  font-size: 1.7rem;
+  color: var(--light-color);
+  padding-top: 1rem;
+}
+
+.container .details h3 {
+  font-size: 2rem;
+  color: var(--black);
+  padding-top: 1rem;
+}
+
+.container .details p {
+  font-size: 1.7rem;
+  color: var(--light-color);
+  padding-top: 1rem;
+}
+
+.review-box .review-text p{
+  font-size: 1.7rem;
+  color: var(--light-color);
+  padding-top: 1rem;
+}
+
 
 .overlay {
   position: fixed;
@@ -927,138 +1016,9 @@ section {
   clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
 }
 
-/* ฟ้อน --------------------------------------------------------------------------------------------------------------------------------------------- */
-
-.form-container {
-  min-height: calc(100vh - 20rem);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.form-container form {
-  background-color: var(--white);
-  border-radius: 0.5rem;
-  padding: 2rem;
-  width: 50rem;
-}
-
-.form-container form h3 {
-  font-size: 2.5rem;
-  text-transform: capitalize;
-  color: var(--black);
-  text-align: center;
-}
-
-.form-container form p {
-  font-size: 1.7rem;
-  color: var(--light-color);
-  padding-top: 1rem;
-}
-
-.form-container form p span {
-  color: var(--red);
-}
-
-.form-container form .box {
-  font-size: 1.8rem;
-  color: var(--black);
-  border-radius: 0.5rem;
-  padding: 1.4rem;
-  background-color: var(--light-bg);
-  width: 100%;
-  margin: 1rem 0;
-}
-
-.container .top-detail h2 {
-  font-size: 2.75rem;
-  color: var(--black);
-  padding-top: 1rem;
-}
-
-.container .top-detail h3 {
-  font-size: 2rem;
-  color: var(--black);
-  padding-top: 1rem;
-}
-
-.container .detail p {
-  font-size: 1.7rem;
-  color: var(--light-color);
-  padding-top: 1rem;
-}
-
-.container .details h3 {
-  font-size: 2rem;
-  color: var(--black);
-  padding-top: 1rem;
-}
-
-.container .details p {
-  font-size: 1.7rem;
-  color: var(--light-color);
-  padding-top: 1rem;
-}
-
-.review-box .review-text p{
-  font-size: 1.7rem;
-  color: var(--light-color);
-  padding-top: 1rem;
-}
-
-.overlay {
-  position: fixed;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  background: rgba(0, 0, 0, 0.7);
-  transition: opacity 100ms;
-  visibility: hidden;
-  opacity: 0;
-  overflow-y: scroll;
-}
-.overlay:target {
-  visibility: visible;
-  opacity: 1;
-}
-
-.popup {
-  margin: 8% auto;
-  padding: 2%;
-  background: #fff;
-  border-radius: 5px;
-  width: 40%;
-  position: relative;
-  /* transition: all 5s ease-in-out; */
-}
-
-.popup h3 {
-  font-size: 2.5rem;
-  text-transform: capitalize;
-  color: var(--black);
-  text-align: center;
-}
-.popup .close {
-  position: absolute;
-  top: 20px;
-  right: 30px;
-  transition: all 200ms;
-  font-size: 30px;
-  font-weight: bold;
-  text-decoration: none;
-  color: #333;
-}
-.popup .close:hover {
-  color: #bb212e;
-}
-.popup .content {
-  max-height: 30%;
-  
-}
-
 /* qr norgor ---------------------------------------------------------------------------------------------------------------------------------------------*/
 .container-qr {
+  text-align: center;
   max-width: 600px;
   margin: 0 auto;
   background-color: rgb(255, 255, 255);
@@ -1083,6 +1043,7 @@ section {
   background-color: #eee;
   padding: 10px 20px;
   border-radius: 8px;
+
 }
 
 .payment-details h2 {
@@ -1209,6 +1170,7 @@ section {
 .btn-submit:hover {
     background-color: #0056b3;
 }
+
 
 
 @media (max-width: 1200px) {
