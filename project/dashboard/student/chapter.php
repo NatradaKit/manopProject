@@ -76,15 +76,23 @@ $coursename = $_GET['course'];
       </div>
 
       <nav class="navbar">
-        <a href="profile.php"><i class="fas fa-home"></i><span>หน้าหลัก</span></a>
+        <a href="profile.php"
+          ><i class="fas fa-home"></i><span>หน้าหลัก</span></a
+        >
         <a href="dashboard.php"
           ><i class="fa-solid fa-book-bookmark"></i><span>คอร์สเรียน</span></a
         >
         <a href="booking.php"
           ><i class="fas fa-graduation-cap"></i><span>จองคอร์สเรียน</span></a
         >
+        <a href="check_demo.php"
+          ><i class="fa-solid fa-cart-shopping"></i><span>สรุปรายการ</span></a
+        >
         <a href="question.php"
           ><i class="fa-solid fa-question"></i><span>Q&A</span></a
+        >
+        <a href="review.php"
+          ><i class="fa-solid fa-star"></i><span>รีวิว</span></a
         >
       </nav>
     </div>
@@ -116,21 +124,21 @@ $coursename = $_GET['course'];
         <div class="info">
            <p class="date"><i class="fas fa-calendar"></i><span>22-10-2022</span></p>
         </div>
-        <div class="student">
-           <img src="../../images/user.png" alt="">
-           <div>
-              <h3 style="font-weight: 500;"><?php echo $username?></h3>
-           </div>
+        <div class="tutor">
+        <a href="material.php?<?php echo"course=$coursename&ch=$chapterNo"; ?>" target="_blank">
+        <div>
+        <h3 style="font-weight: 500;">เอกสารประกอบการสอน</h3>
         </div>
-     </div>
+              </a>
+        </div>
     </section>
 
 
     <section class="comments">
 
-        <h1 class="heading">2 ความคิดเห็น</h1>
+        <h1 class="heading">ความคิดเห็น</h1>
      
-        <form action="" class="add-comment">
+        <form action="qa.php?<?php echo "course=$coursename&ch=$chapterNo"; ?>"  method="post" class="add-comment">
            <h3>ถามคำถาม</h3>
            <textarea name="comment_box" placeholder="พิมพ์คำถามที่สงสัยได้เลย!" required maxlength="1000" cols="30" rows="10"></textarea>
            <input type="submit" value="ถามคำถาม" class="inline-btn" name="add_comment">

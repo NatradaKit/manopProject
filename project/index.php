@@ -41,7 +41,7 @@
     <div class="col-md-6">
       <h2>ยินดีต้นรับเข้าสู่เว็บไซต์ทางการของเรา</h2>
       <p>EdVenture: ผสมผสานคำว่า "Education" และ "Adventure" สื่อถึงการเรียนรู้ที่สนุกสนานและน่าตื่นเต้น</p>
-      <a href="auth/unauth.php" class="btn btn-primary">เริ่มสำรวจกับ Edventure</a>
+      <a href="auth/home.php" class="btn btn-primary">เริ่มสำรวจกับ Edventure</a>
     </div>
     <div class="col-md-6">
       <!-- You can add an image here -->

@@ -74,17 +74,24 @@ if (!$db) {
         <a href="profile.html"><h3 class="name"><?php echo $current_user->getUsername();?></h3></a>
         <p class="role">นักเรียน</p>
       </div>
-
       <nav class="navbar">
-        <a href="profile.php"><i class="fas fa-home"></i><span>หน้าหลัก</span></a>
+        <a href="profile.php"
+          ><i class="fas fa-home"></i><span>หน้าหลัก</span></a
+        >
         <a href="dashboard.php"
           ><i class="fa-solid fa-book-bookmark"></i><span>คอร์สเรียน</span></a
         >
         <a href="booking.php"
           ><i class="fas fa-graduation-cap"></i><span>จองคอร์สเรียน</span></a
         >
+        <a href="check_demo.php"
+          ><i class="fa-solid fa-cart-shopping"></i><span>สรุปรายการ</span></a
+        >
         <a href="question.php"
           ><i class="fa-solid fa-question"></i><span>Q&A</span></a
+        >
+        <a href="review.php"
+          ><i class="fa-solid fa-star"></i><span>รีวิว</span></a
         >
       </nav>
     </div>
@@ -101,10 +108,18 @@ if (!$db) {
     echo $db->lastErrorMsg();
     exit();
     }
+    $sql = "SELECT * FROM Users WHERE username = '$username';";
+    $result = $db->query($sql);
+    $row = $result->fetchArray(SQLITE3_ASSOC);
+    $user_id = $row['user_id'];
 
-    $sql = "SELECT Users.username AS instructor_name, Course.date_created AS course_created_time, Course.name AS course_name, Course.description AS course_description, Course.price AS course_price
+
+    $sql = "SELECT Course.*, Users.username AS instructor_name
     FROM Course
-    JOIN Users ON Course.creator_id = Users.user_id;"; // เรียงลำดับตามวันที่สร้างล่าสุดขึ้นไป
+    LEFT JOIN Enrollment ON Course.id = Enrollment.course_id AND Enrollment.student_id = $user_id
+    JOIN Users ON Course.creator_id = Users.user_id
+    WHERE (Enrollment.status = 0 OR Enrollment.status IS NULL);";
+
     $result = $db->query($sql);
     while($row = $result->fetchArray(SQLITE3_ASSOC)){
       echo "
@@ -113,19 +128,19 @@ if (!$db) {
           <img src=\"../../images/user.png\" alt=\"\" />
           <div class=\"info\">
             <h3>{$row['instructor_name']}</h3>
-            <span>{$row['course_created_time']}</span>
+            <span>{$row['date_created']}</span>
           </div>
         </div>
-        <a href=\"course_detail.php?course={$row['course_name']}\"><h3 class=\"title\">{$row['course_name']}</h3></a>
+        <a href=\"course_detail.php?course={$row['name']}\"><h3 class=\"title\">{$row['name']}</h3></a>
         <p>
-        {$row['course_description']}
+        {$row['description']}
         </p>
         <div class=\"info\">
-          <span class=\"price\">ราคา : {$row['course_price']} บาท</span>
+          <span class=\"price\">ราคา : {$row['price']} บาท</span>
         </div>
 
         <div style=\"float: right\">
-        <a href=\"course_detail.php?course={$row['course_name']}\">
+        <a href=\"course_detail.php?course={$row['name']}\">
           <input
             type=\"submit\"
             value=\"จองคอร์สเรียน\"

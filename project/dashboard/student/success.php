@@ -74,17 +74,24 @@ if (!$db) {
         <a href="profile.html"><h3 class="name"><?php echo $current_user->getUsername();?></h3></a>
         <p class="role">นักเรียน</p>
       </div>
-
       <nav class="navbar">
-        <a href="profile.php"><i class="fas fa-home"></i><span>หน้าหลัก</span></a>
+        <a href="profile.php"
+          ><i class="fas fa-home"></i><span>หน้าหลัก</span></a
+        >
         <a href="dashboard.php"
           ><i class="fa-solid fa-book-bookmark"></i><span>คอร์สเรียน</span></a
         >
         <a href="booking.php"
           ><i class="fas fa-graduation-cap"></i><span>จองคอร์สเรียน</span></a
         >
+        <a href="check_demo.php"
+          ><i class="fa-solid fa-cart-shopping"></i><span>สรุปรายการ</span></a
+        >
         <a href="question.php"
           ><i class="fa-solid fa-question"></i><span>Q&A</span></a
+        >
+        <a href="review.php"
+          ><i class="fa-solid fa-star"></i><span>รีวิว</span></a
         >
       </nav>
     </div>

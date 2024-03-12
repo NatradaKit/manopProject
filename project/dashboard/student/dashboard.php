@@ -13,6 +13,25 @@ if (!$db) {
     echo $db->lastErrorMsg();
     exit();
 }
+
+// คำสั่ง SQL สำหรับค้นหา user_id จาก username
+$sql = "SELECT user_id
+        FROM Users
+        WHERE username = :username";
+
+// เตรียมคำสั่ง SQL
+$stmt = $db->prepare($sql);
+
+// Bind ค่าของ parameter :username
+$stmt->bindParam(':username', $username, SQLITE3_TEXT);
+
+// ประมวลผลคำสั่ง SQL
+$result = $stmt->execute();
+
+// เก็บผลลัพธ์ไว้ในตัวแปร
+$row = $result->fetchArray(SQLITE3_ASSOC);
+$user_id = $row['user_id'];
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -76,15 +95,23 @@ if (!$db) {
       </div>
 
       <nav class="navbar">
-        <a href="profile.php"><i class="fas fa-home"></i><span>หน้าหลัก</span></a>
+        <a href="profile.php"
+          ><i class="fas fa-home"></i><span>หน้าหลัก</span></a
+        >
         <a href="dashboard.php"
           ><i class="fa-solid fa-book-bookmark"></i><span>คอร์สเรียน</span></a
         >
         <a href="booking.php"
           ><i class="fas fa-graduation-cap"></i><span>จองคอร์สเรียน</span></a
         >
+        <a href="check_demo.php"
+          ><i class="fa-solid fa-cart-shopping"></i><span>สรุปรายการ</span></a
+        >
         <a href="question.php"
           ><i class="fa-solid fa-question"></i><span>Q&A</span></a
+        >
+        <a href="review.php"
+          ><i class="fa-solid fa-star"></i><span>รีวิว</span></a
         >
       </nav>
     </div>
@@ -103,7 +130,7 @@ if (!$db) {
         FROM Users
         JOIN Course ON Users.user_id = Course.creator_id
         JOIN Enrollment ON Course.id = Enrollment.course_id
-        WHERE Enrollment.status = 1;";
+        WHERE Enrollment.status = 1 AND Enrollment.student_id = $user_id;";
         $result = $db->query($sql);
 
 while($row = $result->fetchArray(SQLITE3_ASSOC)){

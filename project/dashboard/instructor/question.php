@@ -42,7 +42,7 @@ $current_user = new Instructor($username, $email, $password, $role, $contact);
     <!-- Header Start -->
     <header class="header">
       <section class="flex">
-        <a href="home.php" class="logo"
+        <a href="profile.php" class="logo"
           ><i class="fa-solid fa-book-open"></i> EdVenture</a
         >
 
@@ -66,12 +66,12 @@ $current_user = new Instructor($username, $email, $password, $role, $contact);
     <div class="side-bar">
       <div class="profile">
         <img src="../../images/user.png" class="image" alt="" />
-        <a href="profile.html"><h3 class="name"><?php echo $current_user->getUsername();?></h3></a>
+        <a href="profile.php"><h3 class="name"><?php echo $current_user->getUsername();?></h3></a>
         <p class="role">ผู้สอน</p>
       </div>
 
       <nav class="navbar">
-        <a href="home.php"><i class="fas fa-home"></i><span>หน้าหลัก</span></a>
+        <a href="profile.php"><i class="fas fa-home"></i><span>หน้าหลัก</span></a>
         <a href="dashboard.php"
           ><i class="fas fa-graduation-cap"></i><span>คอร์สของฉัน</span></a
         >
@@ -86,31 +86,44 @@ $current_user = new Instructor($username, $email, $password, $role, $contact);
     <section class="questions">
       <h1 class="heading">Q&A : คำถาม</h1>
 
+    
       <div class="box-container">
-        <div class="box">
-          <div class="user">
-            <img src="images/user.png" alt="" />
-            <div>
-              <h3>ชื่อผู้เรียน</h3>
-              <span>วว-ดด-ปปปป</span>
-            </div>
-          </div>
-          <div class="question-box">eieieieieieieiei helloooo</div>
-          <a href="t_answer.html" class="ans-btn">ตอบคำถาม</a>
-        </div>
+      <?php 
+$db = new SQLite3('../../db/table.db');
+if (!$db) {
+    echo $db->lastErrorMsg();
+    exit();
+}
 
-        <div class="box">
-          <div class="user">
-            <img src="images/user.png" alt="" />
-            <div>
-              <h3>ชื่อผู้เรียน</h3>
-              <span>วว-ดด-ปปปป</span>
-            </div>
-          </div>
-          <div class="question-box">สวัสดีควัฟฟฟฟฟฟฟฟฟฟฟ งงมาก งงไปหมด</div>
-          <a href="t_answer.html" class="ans-btn">ตอบคำถาม</a>
-        </div>
-      </div>
+// กำหนดค่าของตัวแปร $username
+// เปลี่ยนเป็นชื่อผู้ใช้ที่ต้องการค้นหา
+
+$sql = "SELECT QnA.*, Users.username AS student_username 
+        FROM QnA 
+        INNER JOIN Users ON QnA.student_id = Users.user_id 
+        WHERE QnA.instructor_id = (SELECT user_id FROM Users WHERE username = '$username')";
+
+$result = $db->query($sql);
+
+while ($row = $result->fetchArray(SQLITE3_ASSOC)) {
+  echo "
+  <div class=\"box\">
+  <div class=\"user\">
+    <img src=\"../../images/user.png\" alt=\"\" />
+    <div>
+      <h3>{$row['student_username']}</h3>
+      <span>{$row['creation_date']}</span>
+    </div>
+  </div>
+  <div class=\"question-box\">{$row['question_text']}</div>
+  <div class=\"ans-box\">ตอบ : {$row['answer_text']}</div>
+  <a href=\"answer.php?qaid={$row['qa_id']}\" class=\"ans-btn\">ตอบคำถาม</a>
+</div>
+  ";
+}
+
+?>
+
     </section>
     <!-- Section Course End -->
 

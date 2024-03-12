@@ -12,7 +12,6 @@ $password = $_SESSION['password'];
 $email = $_SESSION['email'];
 $role = $_SESSION['role'];
 $contact = $_SESSION['contact'] ; 
-
 $current_user = new Instructor($username, $email, $password, $role, $contact);
 
 ?>
@@ -78,12 +77,11 @@ $current_user = new Instructor($username, $email, $password, $role, $contact);
       </div>
 
       <nav class="navbar">
-        <a href="dashboard.php"><i class="fas fa-home"></i><span>หน้าหลัก</span></a>
-        <a href="t_courses.html"
+        <a href="profile.php"><i class="fas fa-home"></i><span>หน้าหลัก</span></a>
+        <a href="dashboard.php"
           ><i class="fas fa-graduation-cap"></i><span>คอร์สของฉัน</span></a
         >
-        <a href="t_video.html"><i class="fa-solid fa-film"></i><span>Video</span></a>
-        <a href="t_question.html"
+        <a href="question.php"
           ><i class="fa-solid fa-question"></i><span>Q&A</span></a
         >
       </nav>
@@ -133,21 +131,18 @@ $current_user = new Instructor($username, $email, $password, $role, $contact);
           <p style="font-size: 26px; font-weight: 400">บทเรียน</p>
           <br />
           <div class="box-container">
-            <div class="box">
-              <a href="t_video.html"><h3 class="title">- บทเรียนที่ 1</h3></a>
-              <a class="close" href="">&times;</a>
-            </div>
-
-            <div class="box">
-              <a href="t_video.html"><h3 class="title">- บทเรียนที่ 2</h3></a>
-              <a class="close" href="">&times;</a>
-            </div>
-
-            <div class="box">
-              <a href="t_video.html"><h3 class="title">- บทเรียนที่ 3</h3></a>
-              <a class="close" href="">&times;</a>
-            </div>
-          </div>
+          <?php
+      $sql = "SELECT Chapter.* FROM Chapter JOIN Course ON Chapter.course_id = Course.id WHERE Course.name = '$coursename' ORDER BY Chapter.ChapterNo";
+      $result = $db->query($sql);
+      while ($row = $result->fetchArray(SQLITE3_ASSOC)){
+        echo "
+        <div class=\"box\">
+        <a href=\"content.php?course=$coursename&ch={$row['chapterNo']}\"><h3 class=\"title\">- บทเรียนที่ {$row['chapterNo']}</h3></a>
+        <a class=\"close\" href=\"delChapter.php?course=$coursename&ch={$row['chapterNo']}\">&times;</a>
+        </div>
+        ";
+    }
+      ?>
         </div>
       </div>
 
@@ -157,10 +152,11 @@ $current_user = new Instructor($username, $email, $password, $role, $contact);
           <a class="close" href="">&times;</a>
           <div class="content">
             <div class="form-container">
-              <form action="" method="post" enctype="multipart/form-data">
+              <form action="addChapter.php?course=<?php echo $coursename ?>" method="post" enctype="multipart/form-data">
+                <p>บทที่</p>
+                <input type="number" name="ChapNum" placeholder="" class="box" />
                 <p>ชื่อบทเรียน</p>
                 <input type="text" name="Chapname" placeholder="" class="box" />
-
                 <p>ลิงก์วิดีโอ</p>
                 <input
                   type="text"
@@ -169,11 +165,11 @@ $current_user = new Instructor($username, $email, $password, $role, $contact);
                   class="box"
                 />
                 <p>คำบรรยาย</p>
-                <textarea name="" class="box" cols="5" rows="5"></textarea>
+                <textarea name="chapDes" class="box" cols="5" rows="5"></textarea>
 
                 <p>ไฟล์</p>
-                <input type="file" accept="image/*" class="box" />
-                <a href="t_courses.html" class="inline-btn">ย้อนกลับ</a>
+                <input type="file" name="fileToUpload" class="box" />
+                <a href="dashboard.php" class="inline-btn">ย้อนกลับ</a>
                 <input
                   type="submit"
                   value="เพิ่มบทเรียน"
@@ -192,34 +188,33 @@ $current_user = new Instructor($username, $email, $password, $role, $contact);
           <a class="close" href="">&times;</a>
           <div class="content">
             <div class="form-container">
-              <form action="editCourseController.php" method="post" enctype="multipart/form-data">
-                <p>ภาพหน้าปก</p>
-                <input type="file" accept="image/*" class="box" />
+            <form action="editCourseController.php?course=<?php echo "$coursename";?>" method="post" enctype="multipart/form-data">
+            <p>ภาพหน้าปก</p>
+            <input type="file" accept="image/*" name="course_image" class="box" />
 
-                <p>ชื่อคอร์สเรียน</p>
-                <input
-                  type="text"
-                  name="Cname"
-                  placeholder="old course name"
-                  maxlength="50"
-                  class="box"
-                />
-                <p>คำบรรยาย</p>
-
-                <textarea
-                  name=""
-                  class="box"
-                  placeholder="old description"
-                  cols="5"
-                  rows="5"
-                ></textarea>
-                <a href="dashboard.php" class="inline-btn">ย้อนกลับ</a>
-                <input
-                  type="submit"
-                  value="ยืนยัน"
-                  name="submit"
-                  class="ans-btn"
-                />
+            <p>ชื่อคอร์สเรียน</p>
+            <input
+                type="text"
+                name="course_name"
+                placeholder="old course name"
+                maxlength="50"
+                class="box"
+            />
+            <p>คำบรรยาย</p>
+            <textarea
+                name="course_description"
+                class="box"
+                placeholder="old description"
+                cols="30"
+                rows="5"
+            ></textarea>
+            <a href="dashboard.php" class="inline-btn">ย้อนกลับ</a>
+            <input
+                type="submit"
+                value="ยืนยัน"
+                name="submit"
+                class="ans-btn"
+            />
               </form>
             </div>
           </div>

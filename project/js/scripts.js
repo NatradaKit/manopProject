@@ -26,29 +26,33 @@ window.onscroll = () => {
   }
 };
 
-// var clickStar = document.getElementsByClassName("star");
-// console.log(clickStar);
+// norgor slideshow
 
-// for (let i = 0; i < clickStar.length; i++) {
-//    clickStar[i].addEventListener("click", function (e) {
-//       //alert("hello");
-//       if (e.target.closest("span")) {
-//          console.log(e);
-//          let span_el = e.target.closest("span");
-//          if (span_el.classList.contains("star")) {
+let slideIndex = 1;
+showSlides(slideIndex);
 
-//             let current_star = parseInt(span_el.getAttribute("data-star"));
-//             let star_span = span_el.closest("div.star_block").querySelectorAll("span.star");
-//             //console.log(star_span);
-//             star_span.forEach(function (star_item, i) {
+// Next/previous controls
+function plusSlides(n) {
+  showSlides(slideIndex += n);
+}
 
-//                if (parseInt(star_item.getAttribute("data-star")) <= current_star) {
-//                   star_span[i].classList.add("-on");
-//                } else {
-//                   star_span[i].classList.remove("-on");
-//                }
-//             });
-//          }
-//       }
-//    })
-// }
+// Thumbnail image controls
+function currentSlide(n) {
+  showSlides(slideIndex = n);
+}
+
+function showSlides(n) {
+  let i;
+  let slides = document.getElementsByClassName("mySlides");
+  let dots = document.getElementsByClassName("dot");
+  if (n > slides.length) {slideIndex = 1}
+  if (n < 1) {slideIndex = slides.length}
+  for (i = 0; i < slides.length; i++) {
+    slides[i].style.display = "none";
+  }
+  for (i = 0; i < dots.length; i++) {
+    dots[i].className = dots[i].className.replace(" active", "");
+  }
+  slides[slideIndex-1].style.display = "block";
+  dots[slideIndex-1].className += " active";
+}

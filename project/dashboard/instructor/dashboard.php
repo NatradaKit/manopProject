@@ -66,12 +66,12 @@ $current_user = new Instructor($username, $email, $password, $role, $contact);
     <div class="side-bar">
       <div class="profile">
         <img src="../../images/user.png" class="image" alt="" />
-        <a href="profile.html"><h3 class="name"><?php echo $current_user->getUsername();?></h3></a>
+        <a href="profile.php"><h3 class="name"><?php echo $current_user->getUsername();?></h3></a>
         <p class="role">ผู้สอน</p>
       </div>
 
       <nav class="navbar">
-        <a href="home.php"><i class="fas fa-home"></i><span>หน้าหลัก</span></a>
+        <a href="profile.php"><i class="fas fa-home"></i><span>หน้าหลัก</span></a>
         <a href="dashboard.php"
           ><i class="fas fa-graduation-cap"></i><span>คอร์สของฉัน</span></a
         >
@@ -105,7 +105,7 @@ $current_user = new Instructor($username, $email, $password, $role, $contact);
       while ($row = $result->fetchArray(SQLITE3_ASSOC)) {
         echo "
         <div class=\"box\">
-            <a class=\"close\" href=\"\">&times;</a>
+            <a class=\"close\" href=\"delCourse.php?course={$row['name']}\">&times;</a>
             <div class=\"tutor\">
                 <img src=\"../../images/user.png\" alt=\"\" />
                 <div class=\"info\">
