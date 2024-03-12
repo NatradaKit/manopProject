@@ -42,7 +42,7 @@ $current_user = new Instructor($username, $email, $password, $role, $contact);
     <!-- Header Start -->
     <header class="header">
       <section class="flex">
-        <a href="" class="logo"
+        <a href="home.php" class="logo"
           ><i class="fa-solid fa-book-open"></i> EdVenture</a
         >
 
@@ -53,7 +53,7 @@ $current_user = new Instructor($username, $email, $password, $role, $contact);
 
         <div class="profile">
           <h3 class="name"></h3>
-          <p class="role">Instructor</p>
+          <p class="role">ผู้สอน</p>
           <div class="flex-btn">
           <a href="signoutHandle.php" class="option-btn">ออกจากระบบ</a>
           </div>
@@ -71,19 +71,16 @@ $current_user = new Instructor($username, $email, $password, $role, $contact);
       </div>
 
       <nav class="navbar">
-        <a href=""><i class="fas fa-home"></i><span>หน้าหลัก</span></a>
-        <a href="t_courses.html"
+        <a href="home.php"><i class="fas fa-home"></i><span>หน้าหลัก</span></a>
+        <a href="dashboard.php"
           ><i class="fas fa-graduation-cap"></i><span>คอร์สของฉัน</span></a
         >
-        <a href="t_video.html"><i class="fa-solid fa-film"></i><span>Video</span></a>
-        <a href="t_question.html"
+        <a href="question.php"
           ><i class="fa-solid fa-question"></i><span>Q&A</span></a
         >
       </nav>
     </div>
     <!-- Sidebar End -->
-
-    <!-- Section Course Start -->
     <section class="courses">
       <div class="btnbox">
         <h1 class="heading">คอร์สเรียนของฉัน</h1>
@@ -117,37 +114,14 @@ $current_user = new Instructor($username, $email, $password, $role, $contact);
                 </div>
             </div>
             <div class=\"thumb\">
-                <img src=\"{$row['courseimage']}\" alt=\"\" />
+                <img src=\"data:image/jpeg;base64," . base64_encode($row['courseimage']) . "\" alt=\"\" />
             </div>
             <a href=\"chapter.php?course={$row['name']}\"><h3 class=\"title\">{$row['name']}</h3></a>
-            <div class=\"divedit-bt\">
-                <a href=\"#popup2\" class=\"edit-btn\">แก้ไข</a>
-            </div>
         </div>";
-    }
+      }        
       ?>
 
-      
-        <div class="box">
-          <a class="close" href="">&times;</a>
-          <div class="tutor">
-            <img src="images/user.png" alt="" />
-            <div class="info">
-              <h3>ชื่อผู้สอน</h3>
-              <span>วว-ดด-ปปปป</span>
-            </div>
-          </div>
-          <div class="thumb">
-            <img src="images/thumb.jpg" alt="" />
-          </div>
-          <a href="t_chapter.html"><h3 class="title">ชื่อคอร์ส</h3></a>
-          <div class="divedit-bt">
-            <a href="#popup2" class="edit-btn">แก้ไข</a>
-          </div>
-        </div>
-      </div>
-
-      <div id="popup1" class="overlay">
+        <div id="popup1" class="overlay">
         <div class="popup">
           <h3>เพิ่มคอร์สเรียน</h3>
           <a class="close" href="">&times;</a>
@@ -176,46 +150,9 @@ $current_user = new Instructor($username, $email, $password, $role, $contact);
         </div>
       </div>
 
-      <div id="popup2" class="overlay">
-        <div class="popup">
-          <h3>แก้ไขคอร์สเรียน</h3>
-          <a class="close" href="">&times;</a>
-          <div class="content">
-            <div class="form-container">
-              <form action="" method="post" enctype="multipart/form-data">
-                <p>ภาพหน้าปก</p>
-                <input type="file" accept="image/*" class="box" />
-        
-                <p>ชื่อคอร์สเรียน</p>
-                <input
-                  type="text"
-                  name="Cname"
-                  placeholder="old course name"
-                  maxlength="50"
-                  class="box"
-                />
-                <p>คำบรรยาย</p>
-        
-                <textarea
-                  name=""
-                  class="box"
-                  placeholder="old description"
-                  cols="5"
-                  rows="5"
-                ></textarea>
-                <a href="t_courses.html" class="inline-btn">ย้อนกลับ</a>
-                <input
-                  type="submit"
-                  value="ยืนยัน"
-                  name="submit"
-                  class="ans-btn"
-                />
-              </form>
-            </div>
-          </div>
-        </div>
-      </div>
+      
     </section>
+    <!-- Section Course Start -->
     <!-- Section Course End -->
 
     <!-- custom js file link  -->

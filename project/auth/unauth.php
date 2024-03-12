@@ -31,7 +31,7 @@
     <!-- Header Start -->
     <header class="header">
       <section class="flex">
-        <a href="" class="logo"
+        <a href="home.php" class="logo"
           ><i class="fa-solid fa-book-open"></i> EdVenture</a
         >
 
@@ -61,13 +61,9 @@
       </div>
 
       <nav class="navbar">
-        <a href=""><i class="fas fa-home"></i><span>หน้าหลักผู้ใช้</span></a>
-        <a href="t_courses.html"
+        <a href="home.php"><i class="fas fa-home"></i><span>หน้าหลักผู้ใช้</span></a>
+        <a href="unauth.php"
           ><i class="fas fa-graduation-cap"></i><span>คอร์สของเรา</span></a
-        >
-        <a href=""><i class="fa-solid fa-film"></i><span>วิดิโอ</span></a>
-        <a href="t_question.html"
-          ><i class="fa-solid fa-question"></i><span>Q&A</span></a
         >
       </nav>
     </div>
@@ -75,7 +71,52 @@
 
     <!-- Section Course Start -->
     <section class="courses">
-      
+      <h1 class="heading">ดูหลักสูตร</h1>
+      <div class="box-container">
+      <?php
+    $db = new SQLite3('../db/table.db');
+    if (!$db) {
+    echo $db->lastErrorMsg();
+    exit();
+    }
+
+    $sql = "SELECT Users.username AS instructor_name, Course.date_created AS course_created_time, Course.name AS course_name, Course.description AS course_description, Course.price AS course_price
+    FROM Course
+    JOIN Users ON Course.creator_id = Users.user_id;"; // เรียงลำดับตามวันที่สร้างล่าสุดขึ้นไป
+    $result = $db->query($sql);
+    while($row = $result->fetchArray(SQLITE3_ASSOC)){
+      echo "
+      <div class=\"box\">
+        <div class=\"tutor\">
+          <img src=\"../images/user.png\" alt=\"\" />
+          <div class=\"info\">
+            <h3>{$row['instructor_name']}</h3>
+            <span>{$row['course_created_time']}</span>
+          </div>
+        </div>
+        <a href=\"login.php\"><h3 class=\"title\">{$row['course_name']}</h3></a>
+        <p>
+        {$row['course_description']}
+        </p>
+        <div class=\"info\">
+          <span class=\"price\">ราคา : {$row['course_price']} บาท</span>
+        </div>
+
+        <div style=\"float: right\">
+        <a href=\"login.php\">
+          <input
+            type=\"submit\"
+            value=\"จองคอร์สเรียน\"
+            class=\"ans-btn\"
+            name=\"booking_course\"
+          />
+          </a>
+        </div>
+      </div>
+      ";
+    }
+    ?>
+    </div>
     </section>
     <!-- Section Course End -->
 

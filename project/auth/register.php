@@ -65,9 +65,6 @@
         <a href="t_courses.html"
           ><i class="fas fa-graduation-cap"></i><span>คอร์สของเรา</span></a
         >
-        <a href=""><i class="fa-solid fa-film"></i><span>วิดิโอ</span></a>
-        <a href="t_question.html"
-          ><i class="fa-solid fa-question"></i><span>Q&A</span></a
         >
       </nav>
     </div>

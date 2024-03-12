@@ -15,8 +15,6 @@ $contact = $_SESSION['contact'] ;
 
 $current_user = new Instructor($username, $email, $password, $role, $contact);
 
-$sql = "SELECT Chapter.* FROM Chapter JOIN Course ON Chapter.course_id = Course.id WHERE Course.name = '$coursename' ORDER BY Chapter.ChapterNo";
-$result = $db->query($sql);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -93,92 +91,121 @@ $result = $db->query($sql);
     <!-- Sidebar End -->
 
   <!-- Section Course Start -->
+  <?php 
+  $db = new SQLite3('../../db/table.db');
+  if (!$db) {
+  echo $db->lastErrorMsg();
+  exit();}
+
+  $coursename = $_GET['course'];
+  $sql1 = "SELECT * FROM Course  WHERE Course.name = '$coursename'";
+  $result = $db->query($sql1);
+  $row = $result->fetchArray(SQLITE3_ASSOC);
+  ?>
   <section class="courses">
+      <h1 class="heading" style="text-align: center">---<?php echo $coursename;?>---</h1>
       <div class="btnbox">
-        <h1 class="heading"><?php echo $coursename;?></h1>
-        <!-- <a href="t_EditChapter.html" class="inline-btn">แก้ไขบทเรียน</a> -->
-        <a href="#popup1" class="inline-btn">เพิ่มบทเรียน</a>
-      </div>
-      <br />
-      <br />
-      <br />
-
-      <div class="box-container">
-        <div class="box">
-          <a href="video.php"><h3 class="title">- บทเรียนที่ 1</h3></a>
-          <a class="close" href="">&times;</a>
-          <a href="#popup2" class="edit-btn">แก้ไข</a>
-        </div>
-
-        <div class="box">
-          <a href="t_video.html"><h3 class="title">- บทเรียนที่ 2</h3></a>
-          <a class="close" href="">&times;</a>
-          <a href="#popup2" class="edit-btn">แก้ไข</a>
-        </div>
-
-        <div class="box">
-          <a href="t_video.html"><h3 class="title">- บทเรียนที่ 3</h3></a>
-          <a class="close" href="">&times;</a>
-          <a href="#popup2" class="edit-btn">แก้ไข</a>
+        <a href="#popup2" class="inline-btn">แก้ไขคอร์สเรียน</a>
+        <div style="float: right">
+          <a href="#popup1" class="inline-btn">เพิ่มบทเรียน</a>
         </div>
       </div>
+      <br />
 
+      <div class="row">
+        <div class="column">
+          <img
+            style="border-radius: 10px; width: 100%"
+            <?php echo "src=\"data:image/jpeg;base64," . base64_encode($row['courseimage']) . "\"";?>
+            alt="Card image cap"
+          />
+          <br />
+          <br />
+          <p style="font-size: 20px; font-weight: 500; color: rgb(35, 33, 63)">
+            คำบรรยาย
+          </p>
+          <br />
+          <p style="font-size: 18px; color: rgb(55, 54, 71)">
+          <?php echo "{$row['description']}";?>
+          </p>
+        </div>
+        <div class="column">
+          <p style="font-size: 26px; font-weight: 400">บทเรียน</p>
+          <br />
+          <div class="box-container">
+            <div class="box">
+              <a href="t_video.html"><h3 class="title">- บทเรียนที่ 1</h3></a>
+              <a class="close" href="">&times;</a>
+            </div>
 
+            <div class="box">
+              <a href="t_video.html"><h3 class="title">- บทเรียนที่ 2</h3></a>
+              <a class="close" href="">&times;</a>
+            </div>
 
-    <!--  pop up 1 -->
+            <div class="box">
+              <a href="t_video.html"><h3 class="title">- บทเรียนที่ 3</h3></a>
+              <a class="close" href="">&times;</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
       <div id="popup1" class="overlay">
         <div class="popup">
           <h3>เพิ่มบทเรียน</h3>
           <a class="close" href="">&times;</a>
           <div class="content">
             <div class="form-container">
-                <form action="" method="post" enctype="multipart/form-data">
-                    <p>ชื่อบทเรียน</p>
-                    <input type="text" name="Chapname" placeholder="" class="box" />
-            
-                    <p>ลิงก์วิดีโอ</p>
-                    <input type="text" name="LinkVideo" placeholder="" class="box" />
-                    <p>คำบรรยาย</p>
-                    <textarea name="" class="box" cols="5" rows="5"></textarea>
-            
-                    <p>ไฟล์</p>
-                    <input type="file" accept="image/*" class="box" />
-                    <a href="t_courses.html" class="inline-btn">ย้อนกลับ</a>
-                    <input
-                      type="submit"
-                      value="เพิ่มบทเรียน"
-                      name="submit"
-                      class="ans-btn"
-                    />
-                  </form>
-            </div>
-          </div>
-        </div>
-      </div>
-    <!--  pop up 2-->
-      <div id="popup2" class="overlay">
-        <div class="popup">
-          <h3>แก้ไขบทเรียน</h3>
-          <a class="close" href="">&times;</a>
-          <div class="content">
-            <div class="form-container">
               <form action="" method="post" enctype="multipart/form-data">
                 <p>ชื่อบทเรียน</p>
-                <input
-                  type="text"
-                  name="Chapname"
-                  placeholder="old chapter name"
-                  class="box"
-                />
-        
+                <input type="text" name="Chapname" placeholder="" class="box" />
+
                 <p>ลิงก์วิดีโอ</p>
                 <input
                   type="text"
                   name="LinkVideo"
-                  placeholder="old Link Video"
+                  placeholder=""
                   class="box"
                 />
                 <p>คำบรรยาย</p>
+                <textarea name="" class="box" cols="5" rows="5"></textarea>
+
+                <p>ไฟล์</p>
+                <input type="file" accept="image/*" class="box" />
+                <a href="t_courses.html" class="inline-btn">ย้อนกลับ</a>
+                <input
+                  type="submit"
+                  value="เพิ่มบทเรียน"
+                  name="submit"
+                  class="ans-btn"
+                />
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div id="popup2" class="overlay">
+        <div class="popup">
+          <h3>แก้ไขคอร์สเรียน</h3>
+          <a class="close" href="">&times;</a>
+          <div class="content">
+            <div class="form-container">
+              <form action="editCourseController.php" method="post" enctype="multipart/form-data">
+                <p>ภาพหน้าปก</p>
+                <input type="file" accept="image/*" class="box" />
+
+                <p>ชื่อคอร์สเรียน</p>
+                <input
+                  type="text"
+                  name="Cname"
+                  placeholder="old course name"
+                  maxlength="50"
+                  class="box"
+                />
+                <p>คำบรรยาย</p>
+
                 <textarea
                   name=""
                   class="box"
@@ -186,13 +213,10 @@ $result = $db->query($sql);
                   cols="5"
                   rows="5"
                 ></textarea>
-        
-                <p>File</p>
-                <input type="file" accept="image/*" class="box" />
-                <a href="t_courses.html" class="inline-btn">ย้อนกลับ</a>
+                <a href="dashboard.php" class="inline-btn">ย้อนกลับ</a>
                 <input
                   type="submit"
-                  value="แก้ไขบทเรียน"
+                  value="ยืนยัน"
                   name="submit"
                   class="ans-btn"
                 />
@@ -202,7 +226,7 @@ $result = $db->query($sql);
         </div>
       </div>
     </section>
-    <!-- Section Course End -->
+  <!-- Section Course End -->
 
 
     <!-- custom js file link  -->

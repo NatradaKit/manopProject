@@ -66,13 +66,8 @@ session_start();
 
       <nav class="navbar">
         <a href="unauth.php"><i class="fas fa-home"></i><span>หน้าหลักผู้ใช้</span></a>
-        <a href="t_courses.html"
-          ><i class="fas fa-graduation-cap"></i><span>คอร์สของเรา</span></a
-        >
-        <a href=""><i class="fa-solid fa-film"></i><span>วิดิโอ</span></a>
-        <a href="t_question.html"
-          ><i class="fa-solid fa-question"></i><span>Q&A</span></a
-        >
+        <a href="unauth.php"
+          ><i class="fas fa-graduation-cap"></i><span>คอร์สของเรา</span></a>
       </nav>
     </div>
     <!-- Sidebar End -->
