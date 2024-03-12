@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>ผู้เรียน : โปรไฟล์</title>
+    <title>Student : Review</title>
 
     <!-- Font -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -76,41 +76,32 @@
           ><i class="fa-solid fa-question"></i><span>Q&A</span></a
         >
         <a href="s_review.html"
-          ><i class="fa-solid fa-star"></i><span>รีวิว</span></a
+          ><i class="fa-solid fa-star"></i><span>Review</span></a
+        >
+        <a href="s_review.html"
+          ><i class="fa-solid fa-star"></i><span>Review</span></a
         >
       </nav>
     </div>
     <!-- Sidebar End -->
 
-    <!-- Section Answer Start -->
+    <!-- Section Course Start -->
     <section class="form-container">
       <form action="" method="post" enctype="multipart/form-data">
-        <h3>โปรไฟล์</h3>
-        <p>รูปโปรไฟล์</p>
-        <input type="file" accept="image/*" class="box" />
-        <p>ชื่อ</p>
-        <input
-          type="text"
-          name="name"
-          placeholder="ชื่อ นามสกุล"
-          maxlength="50"
-          class="box"
-        />
-        <p>อีเมล</p>
-        <input
-          type="email"
-          name="email"
-          placeholder="abcd@gmail.come"
-          maxlength="50"
-          class="box"
-        />
-        <br />
-        <br />
-        <br />
-        <input type="submit" value="แก้ไขโปรไฟล์" name="submit" class="btn" />
+        <h3>คำติชม/ข้อเสนอแนะ</h3>
+        <p>แสดงความคิดเห็น</p>
+        <textarea name="" class="box" cols="5" rows="5"></textarea>
+        <div style="display: flex; justify-content: center">
+          <input
+            type="submit"
+            value="ส่งความคิดเห็น"
+            name="submit"
+            class="ans-btn"
+          />
+        </div>
       </form>
     </section>
-    <!-- Section Answer End -->
+    <!-- Section Course End -->
 
     <!-- custom js file link  -->
     <script src="js/scripts.js"></script>
